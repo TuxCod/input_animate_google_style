@@ -1,0 +1,110 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Variable */
+
+:root {
+    --body-font       : 'Roboto', sans-serif;
+    --body-normal-font: 1rem;
+    --body-small-font : .75rem;
+
+    --body-bg     : #f7f7fc;
+    --form-bg     : #fff;
+    --first-color : #1A73E8;
+    --input-color : #80868B;
+    --border-color: #DADCE0;
+}
+
+/* Base */
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--body-bg);
+    font-family     : var(--body-font);
+    font-size       : var(--body-normal-font);
+    margin          : 0;
+    padding         : 0;
+}
+
+.container {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    min-height     : 100vh;
+}
+
+/* Form */
+.form {
+    background   : var(--form-bg);
+    padding      : 2rem 2rem;
+    width        : 360px;
+    border-radius: 1rem;
+    box-shadow   : 0 10px 25px rgba(92, 99, 105, .2);
+}
+
+.form__line {
+    position     : relative;
+    height       : 48px;
+    margin-bottom: 1.5rem;
+}
+
+.form .form__line:last-child {
+    margin-bottom: 0;
+}
+
+.form__input {
+    border       : 1px solid var(--border-color);
+    font-size    : var(--body-normal-font);
+    position     : absolute;
+    top          : 0;
+    left         : 0;
+    width        : 100%;
+    height       : 100%;
+    z-index      : 1;
+    border-radius: 1rem;
+    outline      : none;
+    padding      : 1rem;
+}
+
+.form__input:focus {
+    border-color: var(--first-color);
+}
+
+.form__label {
+    z-index   : 2;
+    position  : absolute;
+    top       : 1rem;
+    left      : 1rem;
+    color     : var(--input-color);
+    transition: .3s;
+}
+
+.form__input:focus+.form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus)+.form__label {
+    color           : var(--first-color);
+    top             : -.7rem;
+    font-size       : var(--body-small-font);
+    background-color: #fff;
+    padding         : .2rem;
+}
+
+.form__button {
+    background   : var(--first-color);
+    color        : #fff;
+    border       : 0;
+    padding      : .8rem 2rem;
+    font-size    : var(--body-normal-font);
+    border-radius: 1rem;
+    cursor       : pointer;
+    transition   : .3s;
+}
+
+.form__button:hover {
+    box-shadow: 0 10px 36px rgba(0, 0, 0, .15);
+}
